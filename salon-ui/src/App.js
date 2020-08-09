@@ -9,10 +9,10 @@ function App() {
         <Navbar bg="dark" variant="dark">
           <Navbar.Brand href="#home">AR Salon & Day Spa</Navbar.Brand>
         </Navbar>
-        <div className="center">
-          <h2>
+        <div className="padding-container">
+          <p>
             Edit <code>src/App.js</code> and save to reload.
-          </h2>
+          </p>
         </div>
       </div>
   );
