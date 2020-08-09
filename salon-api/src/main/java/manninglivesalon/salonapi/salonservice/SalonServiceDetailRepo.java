@@ -1,6 +1,8 @@
 package manninglivesalon.salonapi.salonservice;
 
-import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
-public interface SalonServiceDetailRepo extends CrudRepository<SalonServiceDetail, Long> {
+@Repository
+public interface SalonServiceDetailRepo extends JpaRepository<SalonServiceDetail, Long> {
 }

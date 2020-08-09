@@ -1,11 +1,17 @@
 package manninglivesalon.salonapi.config;
 
-import lombok.Data;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Configuration;
 
-@Data
 @Configuration
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
 public class SalonDetails {
 
     @Value("${salon.name}")
@@ -25,5 +31,17 @@ public class SalonDetails {
 
     @Value("${salon.phone}")
     private String phone;
+
+    public SalonDetails clone(){
+
+        SalonDetails salonDetails = new SalonDetails();
+        salonDetails.address=address;
+        salonDetails.city=city;
+        salonDetails.state=state;
+        salonDetails.zipcode=zipcode;
+        salonDetails.phone=phone;
+        salonDetails.name=name;
+        return salonDetails;
+    }
 
 }

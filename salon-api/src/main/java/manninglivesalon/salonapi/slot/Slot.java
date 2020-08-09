@@ -1,29 +1,49 @@
 package manninglivesalon.salonapi.slot;
 
 import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.Setter;
 
 import javax.persistence.*;
+import java.time.LocalDateTime;
 import java.util.Date;
 
-@Data
 @Entity
+@Getter
+@Setter
+@EqualsAndHashCode
 public class Slot {
 
+    public Slot() {
+
+    }
+
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private Date confirmed_at;
+    @ManyToMany(fetch = FetchType.EAGER)
+    @JsonIgnore
+    Set<SalonServiceDetail> availableServices;
 
-    private Date locked_at;
 
-    private Date slot_for;
+    @ManyToOne
+    private SalonServiceDetail selectedService;
 
-    private Integer status;
+    String stylistName;
 
-    private String stylist_name;
 
-    // I think this will be a many-to-one annotation
-    private Long selected_service_id;
+    LocalDateTime slotFor;
 
+    private SlotStatus status;
+
+    LocalDateTime lockedAt;
+    LocalDateTime confirmedAt;
+
+
+}
+
+enum  SlotStatus {
+    AVAILABLE,LOCKED,CONFIRMED,CANCELLED
 }
