@@ -1,4 +1,4 @@
-package manninglivesalon.salonapi;
+package manninglivesalon.salonapi.salonservice;
 
 import org.springframework.data.repository.CrudRepository;
 
